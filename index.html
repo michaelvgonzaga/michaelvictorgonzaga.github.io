@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Michael Victor Gonzaga — Repos • Guides • Notes</title>
+  <meta name="description" content="Repos, thoughts, and guides on modern stacks by Michael Victor Gonzaga." />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <header class="max-w-5xl mx-auto px-4 py-8 flex items-center justify-between">
+    <h1 class="text-2xl font-bold">MVG</h1>
+    <nav class="space-x-4">
+      <a href="#projects" class="hover:underline">Projects</a>
+      <a href="#guides" class="hover:underline">Guides</a>
+      <a href="#notes" class="hover:underline">Notes</a>
+      <a href="#about" class="hover:underline">About</a>
+    </nav>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 space-y-16">
+    <section class="text-center">
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">Builds • Experiments • Guides</h2>
+      <p class="mt-4 text-stone-600">Showcasing repos, findings on new stacks, and practical how-tos.</p>
+    </section>
+
+    <section id="projects">
+      <h3 class="text-2xl font-semibold">Featured Projects</h3>
+      <div class="grid md:grid-cols-3 gap-6 mt-4">
+        <article class="rounded-2xl border p-4 bg-white shadow-sm">
+          <h4 class="font-semibold">Repo One</h4>
+          <p class="text-sm text-stone-600">Short description.</p>
+          <a class="text-blue-600 underline text-sm" href="#" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+        <article class="rounded-2xl border p-4 bg-white shadow-sm">
+          <h4 class="font-semibold">Repo Two</h4>
+          <p class="text-sm text-stone-600">Short description.</p>
+          <a class="text-blue-600 underline text-sm" href="#" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+        <article class="rounded-2xl border p-4 bg-white shadow-sm">
+          <h4 class="font-semibold">Repo Three</h4>
+          <p class="text-sm text-stone-600">Short description.</p>
+          <a class="text-blue-600 underline text-sm" href="#" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="guides" class="prose">
+      <h3 class="text-2xl font-semibold not-prose">Latest Guides</h3>
+      <ul class="list-disc pl-6 mt-3 text-stone-700">
+        <li><a class="text-blue-600 underline" href="#">Kubernetes zero-to-prod on a budget</a></li>
+        <li><a class="text-blue-600 underline" href="#">CI/CD for static sites with GitHub Actions</a></li>
+      </ul>
+    </section>
+
+    <section id="notes" class="prose">
+      <h3 class="text-2xl font-semibold not-prose">Notes / TIL</h3>
+      <ul class="list-disc pl-6 mt-3 text-stone-700">
+        <li><a class="text-blue-600 underline" href="#">TIL: git reflog saves the day</a></li>
+        <li><a class="text-blue-600 underline" href="#">Quick Nginx caching headers</a></li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h3 class="text-2xl font-semibold">About</h3>
+      <p class="mt-2 text-stone-700">I’m Michael Victor Gonzaga. I explore new stacks and publish practical guides.</p>
+    </section>
+  </main>
+
+  <footer class="max-w-5xl mx-auto px-4 py-12 text-sm text-stone-600">
+    © <span id="y"></span> Michael Victor Gonzaga
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
