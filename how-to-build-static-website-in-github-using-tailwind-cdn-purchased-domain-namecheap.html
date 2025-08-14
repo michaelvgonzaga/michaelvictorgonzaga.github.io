@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How to Build a Static Website with Tailwind in Under 15 Minutes</title>
+  <meta name="description" content="Step-by-step guide to creating a static website with Tailwind CSS (CDN) and GitHub Pages in less than 15 minutes, including domain setup via Namecheap." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Build a Static Website with Tailwind in Under 15 Minutes" />
+  <meta property="og:description" content="Step-by-step guide to creating a static website with Tailwind CSS (CDN) and GitHub Pages in less than 15 minutes, including domain setup via Namecheap." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://michaelvictorgonzaga.com/how-to-build-static-website.html" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Build a Static Website with Tailwind in Under 15 Minutes" />
+  <meta name="twitter:description" content="Step-by-step guide to creating a static website with Tailwind CSS (CDN) and GitHub Pages in less than 15 minutes, including domain setup via Namecheap." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-50 text-stone-900 font-sans">
+  <main class="max-w-3xl mx-auto px-4 py-12 space-y-8">
+    <h1 class="text-4xl font-bold">How to Build a Static Website with Tailwind in Under 15 Minutes</h1>
+    <p class="text-stone-600">By Michael Victor Gonzaga — August 2025</p>
+
+    <h2 class="text-2xl font-semibold">Prerequisites</h2>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>GitHub account</li>
+      <li>Text editor or GitHub web editor</li>
+      <li>Optional: a domain from Namecheap</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold">Step 1 — Create GitHub Pages Repo</h2>
+    <p>Go to GitHub → <strong>New repository</strong> → name it <code>&lt;username&gt;.github.io</code> → set to <strong>Public</strong>.</p>
+
+    <h2 class="text-2xl font-semibold">Step 2 — Add Homepage</h2>
+    <p>Create <code>index.html</code> with Tailwind via CDN:</p>
+<pre class="bg-stone-800 text-white p-4 rounded-lg overflow-x-auto text-sm">
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+</pre>
+
+    <h2 class="text-2xl font-semibold">Step 3 — Enable GitHub Pages</h2>
+    <p>Repo → Settings → Pages → Source: <code>main / (root)</code> → Save.</p>
+
+    <h2 class="text-2xl font-semibold">Step 4 — Connect Namecheap Domain</h2>
+    <p>In Namecheap → Advanced DNS, add:</p>
+<pre class="bg-stone-100 p-4 rounded-lg text-sm">
+A @ 185.199.108.153
+A @ 185.199.109.153
+A @ 185.199.110.153
+A @ 185.199.111.153
+CNAME www &lt;username&gt;.github.io
+</pre>
+
+    <h2 class="text-2xl font-semibold">Step 5 — Enforce HTTPS</h2>
+    <p>Wait for SSL to provision, then tick <strong>Enforce HTTPS</strong>.</p>
+
+    <p class="mt-8 text-stone-700">That’s it — you now have a fast, responsive static website online in less than 15 minutes!</p>
+
+    <p><a class="text-blue-600 underline" href="index.html">← Back to homepage</a></p>
+  </main>
+</body>
+</html>
