@@ -171,67 +171,91 @@
   </footer>
 
   <!-- Inline JS (menu + typewriter) -->
-  <script>
-    // Footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Footer year
+  const y = document.getElementById('y');
+  if (y) y.textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('mobile-menu');
+  // Mobile menu (guard if button or menu doesn't exist)
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
     btn.addEventListener('click', () => {
       const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
-      btn.setAttribute('aria-expanded', !expanded);
+      btn.setAttribute('aria-expanded', String(!expanded));
       menu.classList.toggle('hidden');
     });
+  }
 
-    // --- Typewriter (gentle, accessible, ends on motto) ---
-    const PHRASES = ["Builds • Experiments • Guides", "Take Anything, Help Everyone!"];
-    const TYPE_SPEED = 100;     // ms per char typed (readable)
-    const DELETE_SPEED = 60;    // ms per char deleted
-    const HOLD_DELAY = 2500;    // hold each phrase for readability
-    const BETWEEN_DELAY = 1200; // pause before next phrase
-    const LOOP_COUNT = 3;       // number of full cycles (both phrases)
+  // --- Typewriter (gentle, accessible, ends on motto) ---
+  const el = document.getElementById('typewriter');
+  const sr = document.getElementById('typewriter-sr');
+  if (!el || !sr) return; // nothing to animate
 
-    const el = document.getElementById("typewriter");
-    const sr = document.getElementById("typewriter-sr");
+  const PHRASES = ["Builds • Experiments • Guides", "Take Anything, Help Everyone!"];
+  const TYPE_SPEED = 100;     // ms per char typed (readable)
+  const DELETE_SPEED = 60;    // ms per char deleted
+  const HOLD_DELAY = 2500;    // show full phrase before delete
+  const BETWEEN_DELAY = 1200; // small rest before next phrase
+  const LOOP_COUNT = 3;       // number of full cycles
+  const FORCE_ANIMATE = false; // set to true to ignore "Reduce motion" while testing
 
-    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) {
+  const reduceMotion =
+    !FORCE_ANIMATE &&
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // If reduced motion, show the motto and stop.
+  if (reduceMotion) {
+    const finalPhrase = "Take Anything, Help Everyone!";
+    el.textContent = finalPhrase;
+    sr.textContent = finalPhrase;
+    return;
+  }
+
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+  (async function runTypewriter() {
+    try {
+      let i = 0, loops = 0;
+
+      while (loops < LOOP_COUNT) {
+        const phrase = PHRASES[i % PHRASES.length];
+
+        // type
+        for (let c = 0; c <= phrase.length; c++) {
+          el.textContent = phrase.slice(0, c);
+          await sleep(TYPE_SPEED);
+        }
+        sr.textContent = phrase;
+        await sleep(HOLD_DELAY);
+
+        // delete
+        for (let c = phrase.length; c >= 0; c--) {
+          el.textContent = phrase.slice(0, c);
+          await sleep(DELETE_SPEED);
+        }
+        await sleep(BETWEEN_DELAY);
+
+        i++;
+        if (i % PHRASES.length === 0) loops++;
+      }
+
+      // Always finish on the motto
       const finalPhrase = "Take Anything, Help Everyone!";
       el.textContent = finalPhrase;
       sr.textContent = finalPhrase;
-    } else {
-      (async function runTypewriter() {
-        let i = 0, loops = 0;
-
-        while (loops < LOOP_COUNT) {
-          const phrase = PHRASES[i % PHRASES.length];
-
-          // Type
-          for (let c = 0; c <= phrase.length; c++) {
-            el.textContent = phrase.slice(0, c);
-            await new Promise(r => setTimeout(r, TYPE_SPEED));
-          }
-          sr.textContent = phrase;
-          await new Promise(r => setTimeout(r, HOLD_DELAY));
-
-          // Delete
-          for (let c = phrase.length; c >= 0; c--) {
-            el.textContent = phrase.slice(0, c);
-            await new Promise(r => setTimeout(r, DELETE_SPEED));
-          }
-          await new Promise(r => setTimeout(r, BETWEEN_DELAY));
-
-          i++;
-          if (i % PHRASES.length === 0) loops++;
-        }
-
-        // Always finish on motto
-        const finalPhrase = "Take Anything, Help Everyone!";
-        el.textContent = finalPhrase;
-        sr.textContent = finalPhrase;
-      })();
+    } catch (e) {
+      // If anything goes wrong, fail gracefully by showing the motto
+      el.textContent = "Take Anything, Help Everyone!";
+      sr.textContent = "Take Anything, Help Everyone!";
+      // Uncomment for debugging:
+      // console.error(e);
     }
-  </script>
+  })();
+});
+</script>
+
 </body>
 </html>
