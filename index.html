@@ -3,18 +3,58 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Michael Victor Gonzaga — Repos • Guides • Notes</title>
-  <meta name="description" content="Repos, thoughts, and guides on modern stacks by Michael Victor Gonzaga." />
+  <title>Michael Victor Gonzaga — Developer Exploring the Web</title>
+  <meta name="description" content="Michael Victor Gonzaga — a developer exploring the web, based in Central Bicutan, Taguig City, Philippines. Sharing guides, experiments, and notes on GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern web stacks." />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Michael Victor Gonzaga",
+    "description": "Developer exploring the web. Sharing guides, experiments, and notes on GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern stacks.",
+    "url": "https://michaelvictorgonzaga.github.io",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Central Bicutan",
+      "addressRegion": "Taguig City",
+      "postalCode": "1633",
+      "addressCountry": "Philippines"
+    },
+    "sameAs": [
+      "https://github.com/michaelvgonzaga",
+      "https://www.linkedin.com/in/michaelvictorgonzaga/",
+      "#", "#", "#", "#"
+    ]
+  }
+  </script>
+
+  <style>
+    a:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+  </style>
 </head>
 <body class="bg-stone-50 text-stone-900">
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only absolute top-2 left-2 bg-blue-600 text-white px-3 py-1 rounded">
+    Skip to main content
+  </a>
+
+  <!-- Header -->
   <header class="max-w-5xl mx-auto px-4 py-8 flex items-center justify-between">
-    <h1 class="text-2xl font-bold">MVG</h1>
-    <nav class="space-x-4">
+    <a href="/" class="text-2xl font-bold hover:text-blue-600">MVG</a>
+    <nav class="space-x-4" aria-label="Main">
       <a href="#projects" class="hover:underline">Projects</a>
       <a href="#guides" class="hover:underline">Guides</a>
       <a href="#notes" class="hover:underline">Notes</a>
@@ -22,77 +62,106 @@
     </nav>
   </header>
 
-  <main class="max-w-5xl mx-auto px-4 space-y-16">
-<!-- Profile (place this ABOVE your Builds • Experiments • Guides heading) -->
-<div class="mx-auto mt-8 flex items-center justify-center gap-4">
-  <a href="https://github.com/michaelvgonzaga" target="_blank" rel="noopener" class="flex items-center gap-4 group">
-    <img
-      src="https://github.com/michaelvgonzaga.png"
-      alt="Michael Victor Gonzaga – GitHub"
-      class="h-16 w-16 rounded-full border border-gray-200 shadow-sm group-hover:shadow"
-      loading="lazy"
-    />
-    <div class="text-center sm:text-left">
-      <div class="font-semibold leading-tight">Michael Victor Gonzaga</div>
-      <div class="text-sm text-gray-500">@michaelvgonzaga</div>
-      <div class="mt-1 inline-flex items-center gap-2 text-xs text-gray-500">
-        <span class="inline-flex items-center rounded-full border px-2 py-0.5">GitHub Profile</span>
-      </div>
+  <!-- Main -->
+  <main id="main" class="max-w-5xl mx-auto px-4 space-y-16">
+    <!-- Profile -->
+    <div class="mx-auto mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://github.com/michaelvgonzaga" target="_blank" rel="noopener" class="flex items-center gap-4 group">
+        <img
+          src="https://github.com/michaelvgonzaga.png"
+          alt="Michael Victor Gonzaga"
+          class="h-16 w-16 rounded-full border border-gray-200 shadow-sm group-hover:shadow"
+          loading="lazy"
+        />
+        <div class="text-center sm:text-left">
+          <div class="font-semibold leading-tight">Michael Victor Gonzaga</div>
+          <div class="text-sm text-gray-500">@michaelvgonzaga</div>
+          <div class="mt-1 inline-flex items-center gap-2 text-xs text-gray-500">
+            <span class="inline-flex items-center rounded-full border px-2 py-0.5">GitHub Profile</span>
+          </div>
+        </div>
+      </a>
     </div>
-  </a>
-</div>
+
+    <!-- Hero -->
     <section class="text-center">
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">Builds • Experiments • Guides</h2>
-      <p class="mt-4 text-stone-600">Showcasing repos, findings on new stacks, and practical how-tos.</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+        Builds • Experiments • Guides
+      </h1>
+      <p class="mt-4 text-stone-600 max-w-2xl mx-auto">
+        I’m <strong>Michael Victor Gonzaga</strong>, a <strong>developer exploring the web</strong>, based in <strong>Central Bicutan, Taguig City, Philippines</strong>.  
+        Here I share <strong>guides, experiments, and notes</strong> on everything from GitHub Pages to WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern stacks.
+      </p>
+      <a href="#guides" 
+         class="inline-block mt-6 px-4 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition">
+        Explore Guides
+      </a>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
-      <h3 class="text-2xl font-semibold">Featured Projects</h3>
+      <h2 class="text-2xl font-semibold">Featured Projects</h2>
       <div class="grid md:grid-cols-3 gap-6 mt-4">
-        <article class="rounded-2xl border p-4 bg-white shadow-sm">
-          <h4 class="font-semibold">Repo One</h4>
+        <article class="rounded-2xl border p-4 bg-white shadow-sm hover:shadow-md transition">
+          <h3 class="font-semibold">Repo One</h3>
           <p class="text-sm text-stone-600">Short description.</p>
           <a class="text-blue-600 underline text-sm" href="#" target="_blank" rel="noopener">View on GitHub</a>
         </article>
-        <article class="rounded-2xl border p-4 bg-white shadow-sm">
-          <h4 class="font-semibold">Repo Two</h4>
+        <article class="rounded-2xl border p-4 bg-white shadow-sm hover:shadow-md transition">
+          <h3 class="font-semibold">Repo Two</h3>
           <p class="text-sm text-stone-600">Short description.</p>
           <a class="text-blue-600 underline text-sm" href="#" target="_blank" rel="noopener">View on GitHub</a>
         </article>
-        <article class="rounded-2xl border p-4 bg-white shadow-sm">
-          <h4 class="font-semibold">Repo Three</h4>
+        <article class="rounded-2xl border p-4 bg-white shadow-sm hover:shadow-md transition">
+          <h3 class="font-semibold">Repo Three</h3>
           <p class="text-sm text-stone-600">Short description.</p>
           <a class="text-blue-600 underline text-sm" href="#" target="_blank" rel="noopener">View on GitHub</a>
         </article>
       </div>
     </section>
 
+    <!-- Guides -->
     <section id="guides" class="prose">
-      <h3 class="text-2xl font-semibold not-prose">Latest Guides</h3>
+      <h2 class="text-2xl font-semibold not-prose">Latest Developer Guides</h2>
       <ul class="list-disc pl-6 mt-3 text-stone-700">
-        <li><a class="text-blue-600 underline" href="/how-to-build-static-website-in-github-using-tailwind-cdn-purchased-domain-namecheap.html
-">How to Build a Static Website with Tailwind in Under 15 Minutes</a></li>
-        <li><a class="text-blue-600 underline" href="#">Kubernetes zero-to-prod on a budget</a></li>
-        <li><a class="text-blue-600 underline" href="#">CI/CD for static sites with GitHub Actions</a></li>
+        <li><a class="text-blue-600 underline" href="/how-to-build-static-website-in-github-using-tailwind-cdn-purchased-domain-namecheap.html">
+          How to Build a Static Website with Tailwind in Under 15 Minutes</a></li>
+        <li><a class="text-blue-600 underline" href="#">Kubernetes Zero-to-Prod on a Budget</a></li>
+        <li><a class="text-blue-600 underline" href="#">CI/CD for Static Sites with GitHub Actions</a></li>
       </ul>
     </section>
 
+    <!-- Notes -->
     <section id="notes" class="prose">
-      <h3 class="text-2xl font-semibold not-prose">Notes / TIL</h3>
+      <h2 class="text-2xl font-semibold not-prose">Developer Notes / TIL</h2>
       <ul class="list-disc pl-6 mt-3 text-stone-700">
         <li><a class="text-blue-600 underline" href="#">TIL: git reflog saves the day</a></li>
         <li><a class="text-blue-600 underline" href="#">Quick Nginx caching headers</a></li>
       </ul>
     </section>
 
+    <!-- About -->
     <section id="about">
-      <h3 class="text-2xl font-semibold">About</h3>
-      <p class="mt-2 text-stone-700">I’m Michael Victor Gonzaga. I explore new stacks and publish practical guides.</p>
+      <h2 class="text-2xl font-semibold">About</h2>
+      <p class="mt-2 text-stone-700 max-w-2xl">
+        I’m <strong>Michael Victor Gonzaga</strong> — a <strong>developer exploring the web</strong> from <strong>Taguig City, Philippines</strong>.  
+        I like tinkering with platforms like <strong>GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace</strong>, and more.  
+        This site is my notebook for <strong>guides, experiments, and developer notes</strong> as I learn and share along the way.
+      </p>
     </section>
   </main>
 
-  <footer class="max-w-5xl mx-auto px-4 py-12 text-sm text-stone-600">
-    © <span id="y"></span> Michael Victor Gonzaga
+  <!-- Footer -->
+  <footer class="max-w-5xl mx-auto px-4 py-12 text-sm text-stone-600 text-center space-y-4">
+    <div>
+      © <span id="y"></span> Michael Victor Gonzaga • Taguig City, Philippines
+    </div>
+    <div class="flex justify-center space-x-6 text-xl">
+      <a href="#" aria-label="Facebook" class="hover:text-blue-600">🌐</a>
+      <a href="#" aria-label="Instagram" class="hover:text-pink-500">📷</a>
+      <a href="#" aria-label="YouTube" class="hover:text-red-600">▶️</a>
+      <a href="#" aria-label="TikTok" class="hover:text-black">🎵</a>
+    </div>
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
