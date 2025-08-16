@@ -7,8 +7,6 @@
   <meta name="description" content="Michael Victor Gonzaga — a developer exploring the web, based in Central Bicutan, Taguig City, Philippines. Sharing guides, experiments, and notes on GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern web stacks." />
 
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
   <!-- Schema.org -->
@@ -36,6 +34,12 @@
 
   <style>
     a:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+    /* Faux caret blink */
+    @keyframes mvg-blink { 0%, 49% {opacity: 1} 50%, 100% {opacity: 0} }
+    #caret { animation: mvg-blink 1s step-end infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      #caret { animation: none }
+    }
   </style>
 </head>
 <body class="bg-stone-50 text-stone-900">
@@ -86,11 +90,15 @@
       </a>
     </div>
 
-    <!-- Hero -->
+    <!-- Hero with Typewriter -->
     <section class="text-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Builds • Experiments • Guides</h1>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+        <span id="typewriter" aria-live="off">Builds • Experiments • Guides</span>
+        <span id="caret" class="inline-block align-[-0.15em] w-[0.08em] h-[1em] bg-stone-900 ml-1" aria-hidden="true"></span>
+        <span id="typewriter-sr" class="sr-only">Builds • Experiments • Guides</span>
+      </h1>
       <p class="mt-4 text-stone-600 max-w-2xl mx-auto">
-        I’m <strong>Michael Victor Gonzaga</strong>, a <strong>developer exploring the web</strong>, based in <strong>Central Bicutan, Taguig City, Philippines</strong>.  
+        I’m <strong>Michael Victor Gonzaga</strong>, a <strong>developer exploring the web</strong>, based in <strong>Central Bicutan, Taguig City, Philippines</strong>.<br/>
         Here I share <strong>guides, experiments, and notes</strong> on everything from GitHub Pages to WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern stacks.
       </p>
       <a href="#guides" class="inline-block mt-6 px-4 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition">Explore Guides</a>
@@ -141,8 +149,8 @@
     <section id="about">
       <h2 class="text-2xl font-semibold">About</h2>
       <p class="mt-2 text-stone-700 max-w-2xl">
-        I’m <strong>Michael Victor Gonzaga</strong> — a <strong>developer exploring the web</strong> from <strong>Taguig City, Philippines</strong>.  
-        I like tinkering with platforms like <strong>GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace</strong>, and more.  
+        I’m <strong>Michael Victor Gonzaga</strong> — a <strong>developer exploring the web</strong> from <strong>Taguig City, Philippines</strong>.<br/>
+        I like tinkering with platforms like <strong>GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace</strong>, and more.<br/>
         This site is my notebook for <strong>guides, experiments, and developer notes</strong> as I learn and share along the way.
       </p>
     </section>
@@ -161,6 +169,8 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Mobile menu
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
     btn.addEventListener('click', () => {
@@ -168,6 +178,49 @@
       btn.setAttribute('aria-expanded', !expanded);
       menu.classList.toggle('hidden');
     });
+
+    // Typewriter config
+    const PHRASES = ["Builds • Experiments • Guides", "Take Anything, Help Everyone!"];
+    const TYPE_SPEED = 60;      // ms per char typed
+    const DELETE_SPEED = 40;    // ms per char deleted
+    const HOLD_DELAY = 1200;    // ms to hold when a phrase finishes
+    const BETWEEN_DELAY = 600;  // ms before typing next phrase
+    const LOOP = true;
+
+    const el = document.getElementById('typewriter');
+    const sr = document.getElementById('typewriter-sr');
+
+    // Respect reduced motion
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      el.textContent = PHRASES[PHRASES.length - 1];
+      sr.textContent = PHRASES.join(' — ');
+    } else {
+      (async function runTypewriter() {
+        let i = 0;
+        while (true) {
+          const phrase = PHRASES[i % PHRASES.length];
+
+          // type
+          for (let c = 0; c <= phrase.length; c++) {
+            el.textContent = phrase.slice(0, c);
+            await new Promise(r => setTimeout(r, TYPE_SPEED));
+          }
+          sr.textContent = phrase; // update for AT after complete
+          await new Promise(r => setTimeout(r, HOLD_DELAY));
+
+          // delete
+          for (let c = phrase.length; c >= 0; c--) {
+            el.textContent = phrase.slice(0, c);
+            await new Promise(r => setTimeout(r, DELETE_SPEED));
+          }
+          await new Promise(r => setTimeout(r, BETWEEN_DELAY));
+
+          i++;
+          if (!LOOP && i >= PHRASES.length) break;
+        }
+      })();
+    }
   </script>
 </body>
 </html>
