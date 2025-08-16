@@ -6,16 +6,12 @@
   <title>Michael Victor Gonzaga — Developer Exploring the Web</title>
   <meta name="description" content="Michael Victor Gonzaga — a developer exploring the web, based in Central Bicutan, Taguig City, Philippines. Sharing guides, experiments, and notes on GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern web stacks." />
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="shortcut icon" href="/favicon.ico">
 
-  <!-- Structured Data -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,40 +35,47 @@
   </script>
 
   <style>
-    a:focus-visible {
-      outline: 2px solid #2563eb;
-      outline-offset: 2px;
-    }
+    a:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
   </style>
 </head>
 <body class="bg-stone-50 text-stone-900">
   <!-- Skip link -->
-  <a href="#main" class="sr-only focus:not-sr-only absolute top-2 left-2 bg-blue-600 text-white px-3 py-1 rounded">
-    Skip to main content
-  </a>
+  <a href="#main" class="sr-only focus:not-sr-only absolute top-2 left-2 bg-blue-600 text-white px-3 py-1 rounded">Skip to main content</a>
 
-  <!-- Header -->
-  <header class="max-w-5xl mx-auto px-4 py-8 flex items-center justify-between">
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 bg-stone-50 border-b max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
     <a href="/" class="text-2xl font-bold hover:text-blue-600">MVG</a>
-    <nav class="space-x-4" aria-label="Main">
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex space-x-6" aria-label="Main">
       <a href="#projects" class="hover:underline">Projects</a>
       <a href="#guides" class="hover:underline">Guides</a>
       <a href="#notes" class="hover:underline">Notes</a>
       <a href="#about" class="hover:underline">About</a>
     </nav>
+
+    <!-- Mobile Hamburger -->
+    <button id="menu-btn" class="md:hidden flex items-center px-3 py-2 border rounded text-stone-700 border-stone-400 hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-expanded="false" aria-controls="mobile-menu">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
   </header>
+
+  <!-- Mobile Nav -->
+  <nav id="mobile-menu" class="hidden md:hidden bg-stone-50 border-b px-4 pb-4 flex flex-col space-y-2" aria-label="Mobile Menu">
+    <a href="#projects" class="hover:underline">Projects</a>
+    <a href="#guides" class="hover:underline">Guides</a>
+    <a href="#notes" class="hover:underline">Notes</a>
+    <a href="#about" class="hover:underline">About</a>
+  </nav>
 
   <!-- Main -->
   <main id="main" class="max-w-5xl mx-auto px-4 space-y-16">
     <!-- Profile -->
     <div class="mx-auto mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
       <a href="https://github.com/michaelvgonzaga" target="_blank" rel="noopener" class="flex items-center gap-4 group">
-        <img
-          src="https://github.com/michaelvgonzaga.png"
-          alt="Michael Victor Gonzaga"
-          class="h-16 w-16 rounded-full border border-gray-200 shadow-sm group-hover:shadow"
-          loading="lazy"
-        />
+        <img src="https://github.com/michaelvgonzaga.png" alt="Michael Victor Gonzaga" class="h-16 w-16 rounded-full border border-gray-200 shadow-sm group-hover:shadow" loading="lazy" />
         <div class="text-center sm:text-left">
           <div class="font-semibold leading-tight">Michael Victor Gonzaga</div>
           <div class="text-sm text-gray-500">@michaelvgonzaga</div>
@@ -85,17 +88,12 @@
 
     <!-- Hero -->
     <section class="text-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
-        Builds • Experiments • Guides
-      </h1>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Builds • Experiments • Guides</h1>
       <p class="mt-4 text-stone-600 max-w-2xl mx-auto">
         I’m <strong>Michael Victor Gonzaga</strong>, a <strong>developer exploring the web</strong>, based in <strong>Central Bicutan, Taguig City, Philippines</strong>.  
         Here I share <strong>guides, experiments, and notes</strong> on everything from GitHub Pages to WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern stacks.
       </p>
-      <a href="#guides" 
-         class="inline-block mt-6 px-4 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition">
-        Explore Guides
-      </a>
+      <a href="#guides" class="inline-block mt-6 px-4 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition">Explore Guides</a>
     </section>
 
     <!-- Projects -->
@@ -105,17 +103,17 @@
         <article class="rounded-2xl border p-4 bg-white shadow-sm hover:shadow-md transition">
           <h3 class="font-semibold">Repo One</h3>
           <p class="text-sm text-stone-600">Short description.</p>
-          <a class="text-blue-600 underline text-sm" href="#" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="text-blue-600 underline text-sm" href="#">View on GitHub</a>
         </article>
         <article class="rounded-2xl border p-4 bg-white shadow-sm hover:shadow-md transition">
           <h3 class="font-semibold">Repo Two</h3>
           <p class="text-sm text-stone-600">Short description.</p>
-          <a class="text-blue-600 underline text-sm" href="#" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="text-blue-600 underline text-sm" href="#">View on GitHub</a>
         </article>
         <article class="rounded-2xl border p-4 bg-white shadow-sm hover:shadow-md transition">
           <h3 class="font-semibold">Repo Three</h3>
           <p class="text-sm text-stone-600">Short description.</p>
-          <a class="text-blue-600 underline text-sm" href="#" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="text-blue-600 underline text-sm" href="#">View on GitHub</a>
         </article>
       </div>
     </section>
@@ -124,8 +122,7 @@
     <section id="guides" class="prose">
       <h2 class="text-2xl font-semibold not-prose">Latest Developer Guides</h2>
       <ul class="list-disc pl-6 mt-3 text-stone-700">
-        <li><a class="text-blue-600 underline" href="/how-to-build-static-website-in-github-using-tailwind-cdn-purchased-domain-namecheap.html">
-          How to Build a Static Website with Tailwind in Under 15 Minutes</a></li>
+        <li><a class="text-blue-600 underline" href="/how-to-build-static-website.html">How to Build a Static Website with Tailwind in Under 15 Minutes</a></li>
         <li><a class="text-blue-600 underline" href="#">Kubernetes Zero-to-Prod on a Budget</a></li>
         <li><a class="text-blue-600 underline" href="#">CI/CD for Static Sites with GitHub Actions</a></li>
       </ul>
@@ -153,9 +150,7 @@
 
   <!-- Footer -->
   <footer class="max-w-5xl mx-auto px-4 py-12 text-sm text-stone-600 text-center space-y-4">
-    <div>
-      © <span id="y"></span> Michael Victor Gonzaga • Taguig City, Philippines
-    </div>
+    <div>© <span id="y"></span> Michael Victor Gonzaga • Taguig City, Philippines</div>
     <div class="flex justify-center space-x-6 text-xl">
       <a href="#" aria-label="Facebook" class="hover:text-blue-600">🌐</a>
       <a href="#" aria-label="Instagram" class="hover:text-pink-500">📷</a>
@@ -163,6 +158,16 @@
       <a href="#" aria-label="TikTok" class="hover:text-black">🎵</a>
     </div>
   </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
+      btn.setAttribute('aria-expanded', !expanded);
+      menu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
