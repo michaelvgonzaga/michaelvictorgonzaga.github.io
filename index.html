@@ -35,14 +35,6 @@
 
   <style>
     a:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
-
-    /* Gentle faux caret blink */
-    @keyframes mvg-blink { 0%,55% {opacity: 1} 56%,100% {opacity: 0} }
-    #caret { animation: mvg-blink 1.2s step-end infinite; }
-
-    @media (prefers-reduced-motion: reduce) {
-      #caret { animation: none }
-    }
   </style>
 </head>
 <body class="bg-stone-50 text-stone-900">
@@ -93,12 +85,10 @@
       </a>
     </div>
 
-    <!-- Hero with Typewriter -->
+    <!-- Hero -->
     <section class="text-center">
       <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
-        <span id="typewriter" aria-live="off">Builds • Experiments • Guides</span>
-        <span id="caret" class="inline-block align-[-0.15em] w-[0.08em] h-[1em] bg-stone-900 ml-1" aria-hidden="true"></span>
-        <span id="typewriter-sr" class="sr-only">Builds • Experiments • Guides</span>
+        Builds • Experiments • Guides
       </h1>
       <p class="mt-4 text-stone-600 max-w-2xl mx-auto">
         I’m <strong>Michael Victor Gonzaga</strong>, a <strong>developer exploring the web</strong>, based in <strong>Central Bicutan, Taguig City, Philippines</strong>.<br/>
@@ -170,14 +160,14 @@
     </div>
   </footer>
 
-  <!-- Inline JS (menu + typewriter) -->
+  <!-- Inline JS (menu + footer year only) -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // Footer year
   const y = document.getElementById('y');
   if (y) y.textContent = new Date().getFullYear();
 
-  // Mobile menu (guard if button or menu doesn't exist)
+  // Mobile menu
   const btn = document.getElementById('menu-btn');
   const menu = document.getElementById('mobile-menu');
   if (btn && menu) {
@@ -187,73 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
       menu.classList.toggle('hidden');
     });
   }
-
-  // --- Typewriter (gentle, accessible, ends on motto) ---
-  const el = document.getElementById('typewriter');
-  const sr = document.getElementById('typewriter-sr');
-  if (!el || !sr) return; // nothing to animate
-
-  const PHRASES = ["Builds • Experiments • Guides", "Take Anything, Help Everyone!"];
-  const TYPE_SPEED = 100;     // ms per char typed (readable)
-  const DELETE_SPEED = 60;    // ms per char deleted
-  const HOLD_DELAY = 2500;    // show full phrase before delete
-  const BETWEEN_DELAY = 1200; // small rest before next phrase
-  const LOOP_COUNT = 3;       // number of full cycles
-  const FORCE_ANIMATE = false; // set to true to ignore "Reduce motion" while testing
-
-  const reduceMotion =
-    !FORCE_ANIMATE &&
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // If reduced motion, show the motto and stop.
-  if (reduceMotion) {
-    const finalPhrase = "Take Anything, Help Everyone!";
-    el.textContent = finalPhrase;
-    sr.textContent = finalPhrase;
-    return;
-  }
-
-  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-
-  (async function runTypewriter() {
-    try {
-      let i = 0, loops = 0;
-
-      while (loops < LOOP_COUNT) {
-        const phrase = PHRASES[i % PHRASES.length];
-
-        // type
-        for (let c = 0; c <= phrase.length; c++) {
-          el.textContent = phrase.slice(0, c);
-          await sleep(TYPE_SPEED);
-        }
-        sr.textContent = phrase;
-        await sleep(HOLD_DELAY);
-
-        // delete
-        for (let c = phrase.length; c >= 0; c--) {
-          el.textContent = phrase.slice(0, c);
-          await sleep(DELETE_SPEED);
-        }
-        await sleep(BETWEEN_DELAY);
-
-        i++;
-        if (i % PHRASES.length === 0) loops++;
-      }
-
-      // Always finish on the motto
-      const finalPhrase = "Take Anything, Help Everyone!";
-      el.textContent = finalPhrase;
-      sr.textContent = finalPhrase;
-    } catch (e) {
-      // If anything goes wrong, fail gracefully by showing the motto
-      el.textContent = "Take Anything, Help Everyone!";
-      sr.textContent = "Take Anything, Help Everyone!";
-      // Uncomment for debugging:
-      // console.error(e);
-    }
-  })();
 });
 </script>
 
