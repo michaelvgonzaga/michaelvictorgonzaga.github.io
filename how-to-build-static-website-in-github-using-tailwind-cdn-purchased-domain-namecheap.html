@@ -66,7 +66,7 @@
 
     <!-- Prerequisites -->
     <div class="bg-stone-100 border-l-4 border-blue-600 p-4 rounded mt-6">
-      <h2 class="font-semibold">Prerequisites</h2>
+      <h2 class="font-semibold p-1">Prerequisites</h2>
       <ul class="list-disc pl-6 mt-2 text-stone-700">
         <li>GitHub account</li>
         <li>Text editor or GitHub web editor</li>
@@ -75,21 +75,21 @@
     </div>
 
     <!-- Steps -->
-    <h2>Step 1 — Create GitHub Pages Repo</h2>
+    <h2 p-1>Step 1 — Create GitHub Pages Repo</h2>
     <p>Go to GitHub → <strong>New repository</strong> → name it <code>&lt;username&gt;.github.io</code> → set to <strong>Public</strong>.</p><br/>
-    <h2>Step 2 — Add Homepage</h2>
+    <h2 class="p-1">Step 2 — Add Homepage</h2>
     <p>Create <code>index.html</code> with Tailwind via CDN:</p>
     <pre><code>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</code></pre><br/>
-    <h2>Step 3 — Enable GitHub Pages</h2>
+    <h2 class="p-1">Step 3 — Enable GitHub Pages</h2>
     <p>Repo → Settings → Pages → Source: <code>main / (root)</code> → Save.</p><br/>
-    <h2>Step 4 — Connect Namecheap Domain</h2>
+    <h2 class="p-1">Step 4 — Connect Namecheap Domain</h2>
     <p>In Namecheap → Advanced DNS, add:</p>
     <pre><code>A @ 185.199.108.153
 A @ 185.199.109.153
 A @ 185.199.110.153
 A @ 185.199.111.153
 CNAME www &lt;username&gt;.github.io</code></pre><br/>
-    <h2>Step 5 — Enforce HTTPS</h2>
+    <h2 class="p-1">Step 5 — Enforce HTTPS</h2>
     <p>Wait for SSL to provision, then tick <strong>Enforce HTTPS</strong>.</p>
 
     <!-- Conclusion -->
