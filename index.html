@@ -3,32 +3,63 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Michael Victor Gonzaga — Developer Exploring the Web</title>
-  <meta name="description" content="Michael Victor Gonzaga — a developer exploring the web, based in Central Bicutan, Taguig City, Philippines. Sharing guides, experiments, and notes on GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern web stacks." />
+
+  <!-- Primary SEO -->
+  <title>Michael Victor Gonzaga – Web Developer Exploring DevOps & Software Engineering</title>
+  <meta name="description" content="Michael Victor Gonzaga – Web Developer in Taguig City, exploring DevOps & Software Engineering. Guides, experiments, and notes on GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, and modern stacks." />
+  <!-- If you own the domain, point canonical to it. Otherwise keep the github.io URL. -->
+  <link rel="canonical" href="https://michaelvictorgonzaga.com" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Icons (place these files in repo root) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Michael Victor Gonzaga – Web Developer">
+  <meta property="og:description" content="Web Developer expanding into DevOps & Software Engineering. Guides and experiments across modern web stacks.">
+  <meta property="og:url" content="https://michaelvictorgonzaga.com">
+  <meta property="og:image" content="https://michaelvictorgonzaga.com/preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Michael Victor Gonzaga – Web Developer">
+  <meta name="twitter:description" content="Web Developer expanding into DevOps & Software Engineering. Guides and experiments across modern web stacks.">
+  <meta name="twitter:image" content="https://michaelvictorgonzaga.com/preview.png">
 
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
-  <!-- Schema.org Person -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Michael Victor Gonzaga",
-    "description": "Developer exploring the web. Sharing guides, experiments, and notes on GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern stacks.",
-    "url": "https://michaelvictorgonzaga.github.io",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Central Bicutan",
-      "addressRegion": "Taguig City",
-      "postalCode": "1633",
-      "addressCountry": "Philippines"
-    },
-    "sameAs": [
-      "https://github.com/michaelvgonzaga",
-      "https://www.linkedin.com/in/michaelvictorgonzaga/",
-      "#", "#", "#", "#"
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Michael Victor Gonzaga",
+        "jobTitle": "Web Developer (Exploring DevOps & Software Engineering)",
+        "description": "Web Developer in Taguig City, Philippines. Sharing guides, experiments, and notes on GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, and modern stacks while expanding into DevOps and Software Engineering.",
+        "url": "https://michaelvictorgonzaga.com",
+        "image": "https://github.com/michaelvictorgonzaga.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Central Bicutan",
+          "addressRegion": "Taguig City",
+          "postalCode": "1633",
+          "addressCountry": "PH"
+        },
+        "sameAs": [
+          "https://github.com/michaelvgonzaga",
+          "https://www.linkedin.com/in/michaelvictorgonzaga/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Michael Victor Gonzaga",
+        "url": "https://michaelvictorgonzaga.com"
+      }
     ]
   }
   </script>
@@ -41,7 +72,7 @@
   <!-- Skip link -->
   <a href="#main" class="sr-only focus:not-sr-only absolute top-2 left-2 bg-blue-600 text-white px-3 py-1 rounded">Skip to main content</a>
 
-  <!-- Sticky Header -->
+  <!-- Header -->
   <header class="sticky top-0 z-50 bg-stone-50 border-b max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
     <a href="/" class="text-2xl font-bold hover:text-blue-600">MVG</a>
 
@@ -54,8 +85,8 @@
     </nav>
 
     <!-- Mobile Hamburger -->
-    <button id="menu-btn" class="md:hidden flex items-center px-3 py-2 border rounded text-stone-700 border-stone-400 hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-expanded="false" aria-controls="mobile-menu">
-      <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <button id="menu-btn" class="md:hidden flex items-center px-3 py-2 border rounded text-stone-700 border-stone-400 hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
@@ -74,12 +105,13 @@
     <!-- Profile -->
     <div class="mx-auto mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
       <a href="https://github.com/michaelvgonzaga" target="_blank" rel="noopener" class="flex items-center gap-4 group">
-        <img src="https://github.com/michaelvgonzaga.png" alt="Michael Victor Gonzaga" class="h-16 w-16 rounded-full border border-gray-200 shadow-sm group-hover:shadow" loading="lazy" />
+        <img src="https://github.com/michaelvictorgonzaga.png" alt="Michael Victor Gonzaga" class="h-16 w-16 rounded-full border border-gray-200 shadow-sm group-hover:shadow" loading="lazy" />
         <div class="text-center sm:text-left">
           <div class="font-semibold leading-tight">Michael Victor Gonzaga</div>
-          <div class="text-sm text-gray-500">@michaelvgonzaga</div>
+          <div class="text-sm text-gray-500">Web Developer → exploring DevOps & Software Engineering</div>
           <div class="mt-1 inline-flex items-center gap-2 text-xs text-gray-500">
-            <span class="inline-flex items-center rounded-full border px-2 py-0.5">GitHub Profile</span>
+            <span class="inline-flex items-center rounded-full border px-2 py-0.5">Taguig City, PH</span>
+            <span class="inline-flex items-center rounded-full border px-2 py-0.5">Open to roles & collabs</span>
           </div>
         </div>
       </a>
@@ -91,10 +123,21 @@
         Builds • Experiments • Guides
       </h1>
       <p class="mt-4 text-stone-600 max-w-2xl mx-auto">
-        I’m <strong>Michael Victor Gonzaga</strong>, a <strong>developer exploring the web</strong>, based in <strong>Central Bicutan, Taguig City, Philippines</strong>.<br/>
-        Here I share <strong>guides, experiments, and notes</strong> on everything from GitHub Pages to WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern stacks.
+        I’m <strong>Michael Victor Gonzaga</strong>, a <strong>Web Developer</strong> based in <strong>Central Bicutan, Taguig City</strong> — actively exploring <strong>DevOps</strong> and <strong>Software Engineering</strong>.
+        I share practical guides, experiments, and notes on GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace, and modern stacks.
       </p>
-      <a href="#guides" class="inline-block mt-6 px-4 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition">Explore Guides</a>
+      <div class="mt-6 flex items-center justify-center gap-3">
+        <a href="#guides" class="px-4 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition">Explore Guides</a>
+        <a href="#projects" class="px-4 py-2 rounded-lg border font-medium hover:bg-stone-100">See Projects</a>
+      </div>
+      <div class="mt-4 text-sm text-stone-500">
+        <span class="inline-block border rounded px-2 py-0.5 mr-1">GitHub Pages</span>
+        <span class="inline-block border rounded px-2 py-0.5 mr-1">WordPress</span>
+        <span class="inline-block border rounded px-2 py-0.5 mr-1">Shopify</span>
+        <span class="inline-block border rounded px-2 py-0.5 mr-1">Drupal</span>
+        <span class="inline-block border rounded px-2 py-0.5 mr-1">Netlify</span>
+        <span class="inline-block border rounded px-2 py-0.5 mr-1">Tailwind</span>
+      </div>
     </section>
 
     <!-- Projects -->
@@ -102,19 +145,19 @@
       <h2 class="text-2xl font-semibold">Featured Projects</h2>
       <div class="grid md:grid-cols-3 gap-6 mt-4">
         <article class="rounded-2xl border p-4 bg-white shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold">Repo One</h3>
-          <p class="text-sm text-stone-600">Short description.</p>
-          <a class="text-blue-600 underline text-sm" href="#">View on GitHub</a>
+          <h3 class="font-semibold">Static Site Starter (GitHub Pages + Tailwind)</h3>
+          <p class="text-sm text-stone-600">Ultra-light starter for personal/portfolio sites with SEO, OG cards, and Netlify/Pages deploys.</p>
+          <a class="text-blue-600 underline text-sm" href="https://github.com/michaelvgonzaga" target="_blank" rel="noopener">View on GitHub</a>
         </article>
         <article class="rounded-2xl border p-4 bg-white shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold">Repo Two</h3>
-          <p class="text-sm text-stone-600">Short description.</p>
-          <a class="text-blue-600 underline text-sm" href="#">View on GitHub</a>
+          <h3 class="font-semibold">WP Business Theme Setup</h3>
+          <p class="text-sm text-stone-600">A sane WordPress baseline: performance, security hardening, and editor-friendly components.</p>
+          <a class="text-blue-600 underline text-sm" href="#" aria-disabled="true">Case study (soon)</a>
         </article>
         <article class="rounded-2xl border p-4 bg-white shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold">Repo Three</h3>
-          <p class="text-sm text-stone-600">Short description.</p>
-          <a class="text-blue-600 underline text-sm" href="#">View on GitHub</a>
+          <h3 class="font-semibold">CI/CD for Static Sites</h3>
+          <p class="text-sm text-stone-600">GitHub Actions pipeline template for testing, building, and deploying static sites.</p>
+          <a class="text-blue-600 underline text-sm" href="#" aria-disabled="true">Guide (soon)</a>
         </article>
       </div>
     </section>
@@ -123,10 +166,9 @@
     <section id="guides" class="prose">
       <h2 class="text-2xl font-semibold not-prose">Latest Developer Guides</h2>
       <ul class="list-disc pl-6 mt-3 text-stone-700">
-        <li><a class="text-blue-600 underline" href="how-to-build-static-website-in-github-using-tailwind-cdn-purchased-domain-namecheap.html
-">How to Build a Static Website using Github pages, Tailwind, and Namecheap in Under 15 Minutes</a></li>
-        <li><a class="text-blue-600 underline" href="#">Kubernetes Zero-to-Prod on a Budget</a></li>
-        <li><a class="text-blue-600 underline" href="#">CI/CD for Static Sites with GitHub Actions</a></li>
+        <li><a class="text-blue-600 underline" href="how-to-build-static-website-in-github-using-tailwind-cdn-purchased-domain-namecheap.html">Build a Static Website on GitHub Pages with Tailwind & Namecheap Domain (15 mins)</a></li>
+        <li><a class="text-blue-600 underline" href="#" aria-disabled="true">Kubernetes Zero-to-Prod on a Budget (soon)</a></li>
+        <li><a class="text-blue-600 underline" href="#" aria-disabled="true">CI/CD for Static Sites with GitHub Actions (soon)</a></li>
       </ul>
     </section>
 
@@ -134,8 +176,8 @@
     <section id="notes" class="prose">
       <h2 class="text-2xl font-semibold not-prose">Developer Notes / TIL</h2>
       <ul class="list-disc pl-6 mt-3 text-stone-700">
-        <li><a class="text-blue-600 underline" href="#">TIL: git reflog saves the day</a></li>
-        <li><a class="text-blue-600 underline" href="#">Quick Nginx caching headers</a></li>
+        <li><a class="text-blue-600 underline" href="#" aria-disabled="true">TIL: git reflog saves the day (soon)</a></li>
+        <li><a class="text-blue-600 underline" href="#" aria-disabled="true">Quick Nginx caching headers (soon)</a></li>
       </ul>
     </section>
 
@@ -143,9 +185,9 @@
     <section id="about">
       <h2 class="text-2xl font-semibold">About</h2>
       <p class="mt-2 text-stone-700 max-w-2xl">
-        I’m <strong>Michael Victor Gonzaga</strong> — a <strong>developer exploring the web</strong> from <strong>Taguig City, Philippines</strong>.<br/>
-        I like tinkering with platforms like <strong>GitHub Pages, WordPress, Drupal, WooCommerce, Shopify, Squarespace</strong>, and more.<br/>
-        This site is my notebook for <strong>guides, experiments, and developer notes</strong> as I learn and share along the way.
+        I’m <strong>Michael Victor Gonzaga</strong> — a <strong>Web Developer</strong> from <strong>Taguig City, Philippines</strong>, expanding into <strong>DevOps</strong> and <strong>Software Engineering</strong>.
+        I like tinkering with <strong>GitHub Pages, Netlify, WordPress, Drupal, WooCommerce, Shopify</strong>, and modern tooling.
+        This site is my notebook for <strong>guides, experiments, and developer notes</strong>.
       </p>
     </section>
   </main>
@@ -154,32 +196,28 @@
   <footer class="max-w-5xl mx-auto px-4 py-12 text-sm text-stone-600 text-center space-y-4">
     <div>© <span id="y"></span> Michael Victor Gonzaga • Taguig City, Philippines</div>
     <div class="flex justify-center space-x-6 text-xl">
-      <a href="#" aria-label="Facebook" class="hover:text-blue-600">🌐</a>
-      <a href="#" aria-label="Instagram" class="hover:text-pink-500">📷</a>
-      <a href="#" aria-label="YouTube" class="hover:text-red-600">▶️</a>
-      <a href="#" aria-label="TikTok" class="hover:text-black">🎵</a>
+      <!-- Replace with your real profiles when ready -->
+      <a href="https://github.com/michaelvgonzaga" aria-label="GitHub" class="hover:text-blue-600">🐙</a>
+      <a href="https://www.linkedin.com/in/michaelvictorgonzaga/" aria-label="LinkedIn" class="hover:text-blue-600">💼</a>
     </div>
   </footer>
 
-  <!-- Inline JS (menu + footer year only) -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Footer year
-  const y = document.getElementById('y');
-  if (y) y.textContent = new Date().getFullYear();
+  <!-- Inline JS (menu + footer year) -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const y = document.getElementById('y');
+    if (y) y.textContent = new Date().getFullYear();
 
-  // Mobile menu
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
-      btn.setAttribute('aria-expanded', String(!expanded));
-      menu.classList.toggle('hidden');
-    });
-  }
-});
-</script>
-
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('hidden');
+      });
+    }
+  });
+  </script>
 </body>
 </html>
